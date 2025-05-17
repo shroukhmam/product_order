@@ -13,7 +13,7 @@ import { useCart } from "../contexts/CartContext.jsx";
 export default function ProductPopup({ product, onClose, onAddToCart }) {
     const { cart } = useCart();
     const item = cart.find(i => i.id === product.id);
-    const initialQuantity = item ? item.quantity : 0;
+    const initialQuantity = item ? item.quantity : 1;
 
     const [quantity, setQuantity] = useState(initialQuantity);
 

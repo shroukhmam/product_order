@@ -101,7 +101,7 @@ export default function ProductOrderPage() {
     const applyFilters = () => {
         setActiveFilters(tempFilters);
         setPage(1);
-        setShowSidebar(false);
+        setShowSidebar(true);
     };
 
     const clearFilters = () => {

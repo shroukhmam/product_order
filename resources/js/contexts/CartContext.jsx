@@ -20,22 +20,33 @@ export const CartProvider = ({ children }) => {
             if (existing) {
                 return prev.map(item =>
                     item.id === product.id
-                        ? { ...item, quantity: item.quantity + quantity }
+                        ? { ...item, quantity: quantity }
                         : item
                 );
             }
             return [...prev, { ...product, quantity }];
         });
     };
-    const incrementQuantity = (id) => {
-        setCart(prev =>
-            prev.map(item =>
-                item.id === id
-                    ? { ...item, quantity: item.quantity + 1 }
-                    : item
-            )
-        );
+    const incrementQuantity = (product) => {
+        const exists = cart.find(item => item.id === product.id);
+
+        if (exists) {
+            setCart(prev =>
+                prev.map(item =>
+                    item.id === product.id
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                )
+            );
+        } else {
+            const confirmed = window.confirm(`${product.name} is not in the cart. Add it?`);
+            if (confirmed) {
+                setCart(prev => [...prev, { ...product, quantity: 1 }]);
+            }
+        }
     };
+
+
 
     const decrementQuantity = (id) => {
         setCart(prev =>
@@ -62,7 +73,7 @@ export const CartProvider = ({ children }) => {
 
     const clearCart = () => {
         setCart([]);
-        localStorage.removeItem('cart'); // مهم نمسح كمان
+        localStorage.removeItem('cart');
     };
 
     return (

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Box, Button, Typography} from '@mui/material';
 import {useCart} from "../contexts/CartContext.jsx";
 
-export default function ProductCard({ product,  }) {
+export default function ProductCard({ product }) {
 
     const { cart, incrementQuantity, decrementQuantity } = useCart();
     const item = cart.find(i => i.id === product.id);
-    const quantity = item ? item.quantity : 1;
+    const quantity = item ? item.quantity : 0;
 
     const [showPopup, setShowPopup] = useState(false);
 
@@ -125,7 +125,7 @@ export default function ProductCard({ product,  }) {
                         <Button
                             onClick={(e) => {
                                 e.stopPropagation();
-                                incrementQuantity(product.id);
+                                incrementQuantity(product);
                             }}
                             variant="text"
                             sx={{

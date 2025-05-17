@@ -20,9 +20,10 @@ A full-stack Laravel + React app to manage products, orders, cart, and authentic
 ### 🔧 Backend (Laravel)
 1. Clone the repo
 2. Run `composer install`
-3. Setup `.env` cp
-4. Run migrations: `php artisan migrate --seed`
-5. Start server: `php artisan serve`
+3. Setup `.env` cp .env.example
+4. php artisan key:genrate
+5. Run migrations: `php artisan migrate --seed`
+6. Start server: `php artisan serve`
 
 ### 💻 Frontend (React + Vite)
 1. Run `npm install`
@@ -39,7 +40,7 @@ A full-stack Laravel + React app to manage products, orders, cart, and authentic
 
 ### Time Tracking
 Estimated time: I estimated 2 days to complete the task.
-Actual time taken: It took exactly 2 days to finish.
+Actual time taken: It took exactly 1.5 days to finish.
 Additional notes: I prioritized writing clean, maintainable, and well-documented code over rushing to finish early. I also made sure to handle edge cases properly, which helped deliver a more reliable solution.
 
 
